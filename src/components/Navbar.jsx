@@ -20,7 +20,16 @@ export default function Navbar({ toggleTheme, mode }) {
           <Button color="inherit" href="#about">About</Button>
           <Button color="inherit" href="#projects">Projects</Button>
           <Button color="inherit" href="#contact">Contact</Button>
-          <Button variant="contained" href="/Abhishek_Resume.pdf" target="_blank">Resume</Button>
+
+          {/* ✅ Resume Download Button using anchor tag */}
+          <a
+            href="/Abhishek_Resume.pdf"
+            download
+            style={{ textDecoration: 'none' }}
+          >
+            <Button variant="contained">Resume</Button>
+          </a>
+
           <FormControlLabel
             control={<Switch onChange={toggleTheme} checked={mode === 'dark'} />}
             label={mode === 'dark' ? 'Dark' : 'Light'}
