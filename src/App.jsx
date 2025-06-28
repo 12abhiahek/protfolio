@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -13,16 +12,19 @@ import Experience from './components/Experience';
 
 
 export default function App({ toggleTheme, mode }) {
+  const contactRef = useRef(null);
+
   return (
     <Box>
       <Navbar toggleTheme={toggleTheme} mode={mode} />
       <Container maxWidth="lg">
-        <Home />
+        <Home contactRef={contactRef} />
         <About />
-        <Experience/>
-        <Skills/>
+        <Experience />
+        <Skills />
         <Projects />
-        <Contact />
+      
+        <Contact contactRef={contactRef} />
       </Container>
       <Footer />
     </Box>
