@@ -9,6 +9,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
+import Certificate from './components/Certificate';
 
 
 export default function App({ toggleTheme, mode }) {
@@ -23,7 +24,7 @@ export default function App({ toggleTheme, mode }) {
         <Experience />
         <Skills />
         <Projects />
-      
+        <Certificate />
         <Contact contactRef={contactRef} />
       </Container>
       <Footer />

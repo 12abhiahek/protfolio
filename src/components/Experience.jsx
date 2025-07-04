@@ -90,7 +90,7 @@ export default function Experience() {
                       position: 'absolute',
                       left: 0,
                       top: '50%',
-                      width: '50%',
+                      width: '70%',
                       height: 2,
                       backgroundColor: '#333',
                       transform: 'translateY(-50%)',

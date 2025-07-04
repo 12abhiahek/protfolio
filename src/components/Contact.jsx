@@ -65,7 +65,7 @@ export default function Contact({ contactRef }) {
       viewport={{ once: false, amount: 0.3 }} // Animate on every scroll
       transition={{ duration: 0.8 }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
+      {/* <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
         <Typography
           variant="h4"
           sx={{
@@ -78,6 +78,38 @@ export default function Contact({ contactRef }) {
           Contact Me
         </Typography>
         <Box sx={{ flexGrow: 2, height: 1, backgroundColor: '#3c3c3c' }} />
+      </Box> */}
+
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
+        <Typography
+          variant="h4"
+          sx={{ fontWeight: 600, fontFamily: 'Poppins, sans-serif', color: '#00CFC8', mr: 2 }}
+        >
+          Contact Me
+        </Typography>
+        <Box
+          sx={{
+            flexGrow: 2,
+            height: 1,
+            backgroundColor: '#3c3c3c',
+          }}
+        />
+        
+        <Box sx={{ position: 'relative', width: '70%', height: 24 }}>
+          <Box
+            sx={{
+              position: 'absolute',
+              left: 0,
+              top: '50%',
+              width: '70%',
+              height: 2,
+              backgroundColor: '#333',
+              transform: 'translateY(-50%)',
+            }}
+          />
+          
+          
+        </Box>
       </Box>
 
       <Typography
