@@ -9,6 +9,7 @@ import {
   ListItem,
   ListItemText,
   Fade,
+  useTheme,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 
@@ -56,6 +57,9 @@ export default function Experience() {
   const handleChange = (event, newValue) => setActiveTab(newValue);
   const current = experienceData[activeTab];
 
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+
   return (
     <>
       {/* Animated Heading */}
@@ -64,7 +68,7 @@ export default function Experience() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: false, amount: 0.3 }} // Animate on every scroll
+        viewport={{ once: false, amount: 0.3 }}
       >
         <Typography
           variant="h4"
@@ -84,21 +88,19 @@ export default function Experience() {
             backgroundColor: '#3c3c3c',
           }}
         />
-              <Box sx={{ position: 'relative', width: '70%', height: 24 }}>
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      left: 0,
-                      top: '50%',
-                      width: '70%',
-                      height: 2,
-                      backgroundColor: '#333',
-                      transform: 'translateY(-50%)',
-                    }}
-                  />
-                  
-                  
-                </Box>
+        <Box sx={{ position: 'relative', width: '70%', height: 24 }}>
+          <Box
+            sx={{
+              position: 'absolute',
+              left: 0,
+              top: '50%',
+              width: '70%',
+              height: 2,
+              backgroundColor: '#333',
+              transform: 'translateY(-50%)',
+            }}
+          />
+        </Box>
       </MotionBox>
 
       {/* Experience Section */}
@@ -113,7 +115,7 @@ export default function Experience() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: false, amount: 0.3 }} 
+        viewport={{ once: false, amount: 0.3 }}
       >
         {/* Tabs */}
         <Box sx={{ minWidth: 220 }}>
@@ -161,7 +163,10 @@ export default function Experience() {
               <List dense>
                 {current.description.map((point, i) => (
                   <ListItem key={i} sx={{ pl: 0 }}>
-                    <ListItemText primary={`• ${point}`} sx={{ color: '#ddd' }} />
+                    <ListItemText
+                      primary={`• ${point}`}
+                      sx={{ color: isDark ? '#ddd' : '#000' }}
+                    />
                   </ListItem>
                 ))}
               </List>

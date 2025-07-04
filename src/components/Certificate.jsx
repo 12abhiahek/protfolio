@@ -1,10 +1,13 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import {
+  Typography,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  Button,
+  useTheme,
+} from '@mui/material';
 import { motion } from 'framer-motion';
 
 const certificates = [
@@ -29,6 +32,9 @@ const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
 export default function Certificate() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+
   return (
     <MotionBox
       id="certificates"
@@ -42,18 +48,16 @@ export default function Certificate() {
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
         <Typography
           variant="h4"
-          sx={{ fontWeight: 600, fontFamily: 'Poppins, sans-serif', color: '#00CFC8', mr: 2 }}
+          sx={{
+            fontWeight: 600,
+            fontFamily: 'Poppins, sans-serif',
+            color: '#00CFC8',
+            mr: 2,
+          }}
         >
           Certificates
         </Typography>
-        <Box
-          sx={{
-            flexGrow: 2,
-            height: 1,
-            backgroundColor: '#3c3c3c',
-          }}
-        />
-        
+        <Box sx={{ flexGrow: 2, height: 1, backgroundColor: '#3c3c3c' }} />
         <Box sx={{ position: 'relative', width: '70%', height: 24 }}>
           <Box
             sx={{
@@ -66,8 +70,6 @@ export default function Certificate() {
               transform: 'translateY(-50%)',
             }}
           />
-          
-          
         </Box>
       </Box>
 
@@ -81,28 +83,40 @@ export default function Certificate() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              sx={{ minHeight: 150 }}
+              sx={{
+                minHeight: 150,
+                backgroundColor: isDark ? '#1e1e1e' : '#f9f9f9',
+                color: isDark ? '#fff' : '#000',
+                boxShadow: 3,
+                borderRadius: 2,
+              }}
             >
               <CardContent>
-                <Typography variant="h6">{cert.title}</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                <Typography variant="h6" sx={{ mb: 1 }}>
+                  {cert.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color={isDark ? '#aaa' : 'text.secondary'}
+                  sx={{ mb: 2 }}
+                >
                   {cert.provider}
                 </Typography>
                 <Button
-                    variant="outlined"
-                    href={cert.href || cert.link}
-                    target="_blank"
-                    sx={{
-                      color: '#00e676',
-                      borderColor: '#00e676',
-                      '&:hover': {
-                        backgroundColor: '#00e676',
-                        color: '#000',
-                      },
-                    }}
-                  >
-                    View Certificate
-                  </Button> 
+                  variant="outlined"
+                  href={cert.href || cert.link}
+                  target="_blank"
+                  sx={{
+                    color: '#00e676',
+                    borderColor: '#00e676',
+                    '&:hover': {
+                      backgroundColor: '#00e676',
+                      color: '#000',
+                    },
+                  }}
+                >
+                  View Certificate
+                </Button>
               </CardContent>
             </MotionCard>
           </Grid>
